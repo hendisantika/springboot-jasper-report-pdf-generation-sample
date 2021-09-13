@@ -5,6 +5,7 @@ import com.hendisantika.service.MockOrderService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -30,4 +31,9 @@ public class InvoiceController {
     @Resource
     private InvoiceService invoiceService;
 
+    // display invoice generator : /resources/templates/forms.html
+    @GetMapping("/forms")
+    public String invoiceForms() {
+        return "forms";
+    }
 }
