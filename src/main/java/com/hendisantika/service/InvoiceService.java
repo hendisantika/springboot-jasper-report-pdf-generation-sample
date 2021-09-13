@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -62,5 +63,14 @@ public class InvoiceService {
             logger.error(String.format("An error occured during PDF creation: %s", e));
             throw new RuntimeException(e);
         }
+    }
+
+    // Fill template order params
+    private Map<String, Object> parameters(Order order, Locale locale) {
+        final Map<String, Object> parameters = new HashMap<>();
+        parameters.put("logo", getClass().getResourceAsStream(logoPath));
+        parameters.put("order", order);
+        parameters.put("REPORT_LOCALE", locale);
+        return parameters;
     }
 }
