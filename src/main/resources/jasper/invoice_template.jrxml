@@ -34,7 +34,7 @@
         </box>
     </style>
     <subDataset name="products" uuid="89ff7b15-45c6-4732-a0cd-0d02809edba3">
-        <parameter name="order" class="com.stackextend.generatepdfdocument.model.OrderModel">
+        <parameter name="order" class="com.hendisantika.model.Order">
             <defaultValueExpression><![CDATA[$P{order}]]></defaultValueExpression>
         </parameter>
         <queryString>
@@ -45,7 +45,7 @@
         <field name="price" class="java.lang.Double"/>
     </subDataset>
     <parameter name="logo" class="java.io.InputStream"/>
-    <parameter name="order" class="com.stackextend.generatepdfdocument.model.OrderModel"/>
+    <parameter name="order" class="com.hendisantika.model.Order"/>
     <queryString>
         <![CDATA[]]>
     </queryString>
