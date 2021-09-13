@@ -16,4 +16,8 @@ public class OrderEntry {
     private String productName;
     private Integer quantity;
     private Double price;
+
+    public Double getPriceTotal() {
+        return quantity * price;
+    }
 }
