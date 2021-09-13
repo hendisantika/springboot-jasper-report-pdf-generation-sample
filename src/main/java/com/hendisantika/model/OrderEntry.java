@@ -1,6 +1,8 @@
 package com.hendisantika.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,6 +14,8 @@ import lombok.Data;
  * Time: 05.49
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderEntry {
     private String productName;
     private Integer quantity;
