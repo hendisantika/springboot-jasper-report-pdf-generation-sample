@@ -1,8 +1,12 @@
 package com.hendisantika.service;
 
 import com.hendisantika.model.Order;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +16,7 @@ import org.springframework.ui.jasperreports.JasperReportsUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
@@ -72,5 +77,16 @@ public class InvoiceService {
         parameters.put("order", order);
         parameters.put("REPORT_LOCALE", locale);
         return parameters;
+    }
+
+    // Load invoice JRXML template
+    private JasperReport loadTemplate() throws JRException {
+
+        logger.info(String.format("Invoice template path : %s", invoiceTemplate));
+
+        final InputStream reportInputStream = getClass().getResourceAsStream(invoiceTemplate);
+        final JasperDesign jasperDesign = JRXmlLoader.load(reportInputStream);
+
+        return JasperCompileManager.compileReport(jasperDesign);
     }
 }
