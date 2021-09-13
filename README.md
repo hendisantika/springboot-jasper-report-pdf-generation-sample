@@ -6,3 +6,14 @@
 2. Navigate to the folder: `cd springboot-jasper-report-pdf-generation-sample`
 3. Run the application: `mvn clean spring-boot:run`
 4. Open your favorite browser: http://localhost:8080/invoice/generator/forms
+
+### Images Screen shot
+
+Invoice Form Page
+
+![Invoice Form Page](img/form.png "Invoice Form Page")
+
+Invoice Result
+
+![Invoice Result](img/invoice.png "Invoice Result")
+
